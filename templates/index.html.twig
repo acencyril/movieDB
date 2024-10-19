@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+{% block title %}the movie db{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('build/app.css') }}">
+{% endblock stylesheets %}
+{% block body %}
+<div class="container">
+    <header>
+        <h1>A propos de We Movies</h1>
+        <div class="search-bar">
+            <input type="text" placeholder="Rechercher...">
+            <button>🔍</button>
+        </div>
+    </header>
+
+    <section class="featured">
+        <div class="video-container">
+            <img src="image-du-fondateur.jpg" alt="Le Fondateur" class="featured-image">
+            <div class="video-play-button">
+                <span>▶</span>
+            </div>
+        </div>
+        <div class="movie-info">
+            <h2>Le Fondateur</h2>
+            <p>Le Fondateur Bande-annonce VF</p>
+        </div>
+    </section>
+
+    <section class="filters">
+        <h3>Genres</h3>
+        <ul id="genre-list">
+        </ul>
+    </section>
+
+    <section class="movie-list">
+        <div class="movie-item">
+            <img src="vaiana.jpg" alt="Vaiana">
+            <div class="movie-details">
+                <h3>Vaiana <span class="rating">⭐⭐⭐⭐⭐ (278 votes)</span></h3>
+                <p>2016 - Disney, Pixar</p>
+                <p>C'est depuis les îles océanniennes du Pacifique Sud que la jeune Moana...</p>
+                <button>Lire le détails</button>
+            </div>
+        </div>
+
+        <div class="movie-item">
+            <img src="zootopia.jpg" alt="Zootopia">
+            <div class="movie-details">
+                <h3>Zootopia <span class="rating">⭐⭐⭐⭐ (90 votes)</span></h3>
+                <p>2016 - Disney, Pixar</p>
+                <p>C'est depuis les îles océanniennes du Pacifique Sud que la jeune Moana...</p>
+                <button>Lire le détails</button>
+            </div>
+        </div>
+
+        <div class="movie-item">
+            <img src="bella.jpg" alt="Bella">
+            <div class="movie-details">
+                <h3>Bella <span class="rating">⭐⭐⭐ (10 votes)</span></h3>
+                <p>2016 - Disney, Pixar</p>
+                <p>C'est depuis les îles océanniennes du Pacifique Sud que la jeune Moana...</p>
+                <button>Lire le détails</button>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('build/app.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  www:
+    build: .
+    container_name: themoviedb_php
+    ports:
+      - "8700:80"
+    volumes:
+      - ./docker/vhosts:/etc/apache2/sites-enabled
+      - ./:/var/www
+    restart: always
+    networks:
+      - themoviedb_network
+
+networks:
+  themoviedb_network:
+    driver: bridge
