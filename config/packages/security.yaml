@@ -35,6 +35,5 @@ security:
             security: false
 
     access_control:
-        - { path: ^/api/genres, roles: IS_AUTHENTICATED_FULLY }
         - { path: ^/api/doc, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/api, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api, roles: IS_AUTHENTICATED_FULLY }

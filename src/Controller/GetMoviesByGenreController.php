@@ -1,0 +1,34 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Controller;
+
+use App\Services\GetMoviesByGenre;
+use OpenApi\Attributes\Tag;
+use Psr\Log\LoggerInterface;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\Routing\Annotation\Route;
+
+final class GetMoviesByGenreController
+{
+    public function __construct(
+        private readonly GetMoviesByGenre $getMoviesByGenre,
+        private readonly LoggerInterface $logger
+    ) { }
+
+    #[Route(path: '/api/movies/genre/{genreId}', name:'get_movies_by_genre', options: ['expose' => true], methods: 'GET')]
+    #[Tag('Movies')]
+    public function __invoke(int $genreId): JsonResponse
+    {
+        try {
+            $movies = $this->getMoviesByGenre->__invoke($genreId);
+
+            return new JsonResponse($movies->jsonSerialize());
+        } catch (\Throwable $error) {
+            $this->logger->critical($error);
+
+            return new JsonResponse(['error' => $error->getMessage()], 500);
+        }
+    }
+}

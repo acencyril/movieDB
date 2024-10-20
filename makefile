@@ -47,19 +47,8 @@ clean-vendor: cc-hard ## Suppression du répertoire vendor puis un réinstall
 cc:	## Vider le cache
 	$(SYMFONY_CONSOLE) c:c
 
-cc-test:	## Vider le cache de l'environnement de test
-	$(SYMFONY_CONSOLE) c:c --env=test
-
 cc-hard: ## Supprimer le répertoire cache
 	$(PHP_DOCKER_COMPOSE_EXEC) rm -fR var/cache/*
-
-test-unit: ## Lancement des tests unitaire
-	$(PHP_DOCKER_COMPOSE_EXEC) bin/phpunit tests/Unit/
-
-test-func: clean-db-test	## Lancement des tests fonctionnel
-	$(PHP_DOCKER_COMPOSE_EXEC) bin/phpunit tests/Func/
-
-tests: test-func test-unit	## Lancement de tous tests
 
 ## —— Others 🛠️️ ———————————————————————————————————————————————————————————————
 help: ## Liste des commandes

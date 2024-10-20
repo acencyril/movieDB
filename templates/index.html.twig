@@ -9,21 +9,15 @@
     <header>
         <h1>A propos de We Movies</h1>
         <div class="search-bar">
-            <input type="text" placeholder="Rechercher...">
-            <button>🔍</button>
+            <input type="text" id="searchInput" placeholder="Recherchez des films..." />
+            <button id="searchButton">🔍</button>
+            <ul id="searchResults" class="search-results"></ul>
         </div>
     </header>
 
     <section class="featured">
-        <div class="video-container">
-            <img src="image-du-fondateur.jpg" alt="Le Fondateur" class="featured-image">
-            <div class="video-play-button">
-                <span>▶</span>
-            </div>
-        </div>
-        <div class="movie-info">
-            <h2>Le Fondateur</h2>
-            <p>Le Fondateur Bande-annonce VF</p>
+        <div id="video-container" class="video-container">
+
         </div>
     </section>
 
@@ -34,36 +28,21 @@
     </section>
 
     <section class="movie-list">
-        <div class="movie-item">
-            <img src="vaiana.jpg" alt="Vaiana">
-            <div class="movie-details">
-                <h3>Vaiana <span class="rating">⭐⭐⭐⭐⭐ (278 votes)</span></h3>
-                <p>2016 - Disney, Pixar</p>
-                <p>C'est depuis les îles océanniennes du Pacifique Sud que la jeune Moana...</p>
-                <button>Lire le détails</button>
-            </div>
-        </div>
-
-        <div class="movie-item">
-            <img src="zootopia.jpg" alt="Zootopia">
-            <div class="movie-details">
-                <h3>Zootopia <span class="rating">⭐⭐⭐⭐ (90 votes)</span></h3>
-                <p>2016 - Disney, Pixar</p>
-                <p>C'est depuis les îles océanniennes du Pacifique Sud que la jeune Moana...</p>
-                <button>Lire le détails</button>
-            </div>
-        </div>
-
-        <div class="movie-item">
-            <img src="bella.jpg" alt="Bella">
-            <div class="movie-details">
-                <h3>Bella <span class="rating">⭐⭐⭐ (10 votes)</span></h3>
-                <p>2016 - Disney, Pixar</p>
-                <p>C'est depuis les îles océanniennes du Pacifique Sud que la jeune Moana...</p>
-                <button>Lire le détails</button>
-            </div>
-        </div>
+        <div id="moviesContainer" class="movies-container"></div>
     </section>
+</div>
+<div id="movieModal" class="modal" style="display:none;">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="modal-movie">
+            <div id="modalMovie"></div>
+            <div class="modal-movie-details">
+                <h2 id="modalMovieTitle"></h2>
+                <p id="modalMovieOverview"></p>
+                <p><strong>Note : </strong><span id="modalMovieRating" style="background: #0a0a0a;color: yellow;padding: 0px 7px 0;"></span><span id="modalMovieRatingSuite"></span></p>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}
 {% block javascripts %}

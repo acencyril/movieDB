@@ -29,7 +29,6 @@ class JWTResponseListener
             )
         );
 
-        unset($data['token']);
         $event->setData($data);
     }
 }

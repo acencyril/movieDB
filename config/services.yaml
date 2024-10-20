@@ -32,3 +32,4 @@ services:
         arguments:
             $apiKey: '%env(API_KEY)%'
             $apiPath: '%env(API_PATH)%'
+            $trailerPath: '%env(TRAILER_PATH)%'

@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace App\MoviesGenre;
+namespace App\Services;
 
 use App\Client\TheMovieDbClient;
 use App\Entities\Genres;
 
-final class MoviesGenre
+final class GetGenre
 {
     public function __construct(private readonly TheMovieDbClient $theMovieDbClient)
     {
@@ -15,7 +15,7 @@ final class MoviesGenre
 
     public function __invoke(): Genres
     {
-        $genres = $this->theMovieDbClient->getMoviesGenre();
+        $genres = $this->theMovieDbClient->getGenre();
 
         return new Genres($genres['genres']);
     }

@@ -43,7 +43,6 @@ WORKDIR /var/www/
 COPY . .
 
 # Installer les dépendances npm (y compris Webpack Encore)
-# Installer les dépendances npm (y compris Webpack Encore)
 RUN npm install && npm install @symfony/webpack-encore --save-dev
 
 RUN ls -la /var/www/node_modules/.bin

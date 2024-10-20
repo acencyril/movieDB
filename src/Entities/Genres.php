@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace App\Entities;
 
-use phpDocumentor\Reflection\Types\This;
-
 final class Genres implements \JsonSerializable
 {
     /** @var Genre[] */
@@ -18,7 +16,7 @@ final class Genres implements \JsonSerializable
         }, $genres);
     }
 
-    public function jsonSerialize(): mixed
+    public function jsonSerialize(): array
     {
         return $this->genres;
     }
